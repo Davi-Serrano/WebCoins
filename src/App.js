@@ -3,7 +3,8 @@ import axios from "axios"
 
 import { useCoins } from "./Context/Coins.js";
 
-import Coins from "./Pages/Coins/index.js"; 
+import Coins from "./Pages/Coins/index.js";
+import Header from "./Componets/Header/index.js"; 
 
 function App() {
   
@@ -20,7 +21,7 @@ function App() {
   return (
 
     <div className="App">
-      <h1>Web Coins</h1>
+      <Header> </Header>
 
       <Coins />                    
     </div>
