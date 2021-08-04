@@ -10,7 +10,17 @@ export const NavCoins = styled.div`
 
 export const SearchBar = styled.div`
         margin: 1em 0;
+        input{
+                width: 200px;
+                height: 50px;
+                text-align: center;
+                border: none;
+                border-radius: 4px;
+                font-size: 25px;
+                background:  ${props => props.theme.colors.background} ;
+                color: ${props => props.theme.colors.color};
 
+        }
  
 
 ` 
@@ -19,7 +29,8 @@ export const Table = styled.div `
         display: flex;
         justify-content: start;
         align-items: center;
-        border-bottom: 1px solid red;
+        padding: 0.5em 0;
+        border-bottom: 2px solid ${props => props.theme.colors.background};;
         width: 80%;
 
         .red{

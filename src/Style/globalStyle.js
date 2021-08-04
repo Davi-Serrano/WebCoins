@@ -11,5 +11,9 @@ export default createGlobalStyle`
     html, body :root{
         min-height: 100%;
     }
- 
+    
+    body{
+        background: ${props => props.theme.colors.body};
+        color: ${props => props.theme.colors.color}
+    }
 `;
