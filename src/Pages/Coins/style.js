@@ -42,6 +42,10 @@ export const Table = styled.div `
 
 `
 export const CoinName = styled.div `
+        img{
+                margin:10px;    
+        }
+
         display: flex;
         justify-content: center;
         align-items: center;

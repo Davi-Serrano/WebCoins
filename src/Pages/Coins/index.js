@@ -27,7 +27,7 @@ export default function Coins() {
                    <Table key={coin.id}>
                     
                     <CoinName>
-                        <img src={coin.image} height="60px"/>
+                        <img src={coin.image} height="60px" width="60px"/>
                         {coin.name}
                     </CoinName>
 
@@ -44,11 +44,13 @@ export default function Coins() {
                         ):(
                             <div className="red"> {coin.price_change_percentage_24h.toFixed(2)}</div>
                         )}
-                     
-                   
 
                     <CoinName>
                         {coin.market_cap.toLocaleString()}
+                    </CoinName>
+
+                    <CoinName>
+                        {coin.total_volume}
                     </CoinName>
 
                     </Table>
