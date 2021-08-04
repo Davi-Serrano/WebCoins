@@ -20,7 +20,7 @@ function App() {
   return (
 
     <div className="App">
-      <h1>Hellow</h1>
+      <h1>Web Coins</h1>
 
       <Coins />                    
     </div>
