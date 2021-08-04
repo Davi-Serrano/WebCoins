@@ -5,7 +5,7 @@ export const CoinsContext = createContext();
 export default function CoinsProvider({ children }){
 
 
-    const [ coins, setCoins ] = useState();
+    const [ coins, setCoins ] = useState([]);
 
     return(
 
