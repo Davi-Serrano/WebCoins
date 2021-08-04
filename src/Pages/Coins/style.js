@@ -28,7 +28,7 @@ export const Table = styled.div `
                 justify-content: center;
                 align-items: center;
                 margin-right:80px ;
-                width: 100px;
+                width: 10%;
         }
         .green{
                 color: green;
@@ -36,8 +36,10 @@ export const Table = styled.div `
                 justify-content: center;
                 align-items: center;
                 margin-right:80px ;
-                width: 100px;
+                width: 10%;
         }
+
+
         
 
 `
@@ -50,6 +52,11 @@ export const CoinName = styled.div `
         justify-content: center;
         align-items: center;
         margin-right:80px ;
-        width: 100px;
+        width: 10%;
         
+        @media (max-width: 850px){
+               .hide{
+                display: none;
+               }
+        }
 `

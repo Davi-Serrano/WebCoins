@@ -46,11 +46,15 @@ export default function Coins() {
                         )}
 
                     <CoinName>
-                        {coin.market_cap.toLocaleString()}
+                        <div className="hide">
+                            {coin.market_cap.toLocaleString()}
+                        </div>
                     </CoinName>
 
                     <CoinName>
+                    <div className="hide">
                         {coin.total_volume}
+                    </div>
                     </CoinName>
 
                     </Table>
