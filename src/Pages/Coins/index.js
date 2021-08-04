@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useCoins } from "../../Context/Coins";
-import { NavCoins, SearchBar ,Table } from "./style"
+import { NavCoins, SearchBar ,Table, CoinName, CoinSymbol } from "./style"
 
 export default function Coins() {
 
@@ -25,16 +25,31 @@ export default function Coins() {
 
                return(
                    <Table key={coin.id}>
+                    
+                    <CoinName>
+                        <img src={coin.image} height="60px"/>
+                        {coin.name}
+                    </CoinName>
 
-                    <img src={coin.image} height="60px"/>
-                    {coin.name}
+                    <CoinName>
+                        {coin.symbol.toUpperCase()}
+                    </CoinName>
 
-                    {coin.symbol.toUpperCase()}
+                    <CoinName>{}
+                        R${coin.current_price.toFixed(2)}
+                    </CoinName>
 
-                    {coin.current_price.toFixed(2)}
+                    {coin.price_change_percentage_24h.toFixed(2) > 0 ? (
+                            <div className="green">{coin.price_change_percentage_24h.toFixed(2)}</div>
+                        ):(
+                            <div className="red"> {coin.price_change_percentage_24h.toFixed(2)}</div>
+                        )}
+                     
+                   
 
-
-                    {coin.market_cap.toLocaleString()}
+                    <CoinName>
+                        {coin.market_cap.toLocaleString()}
+                    </CoinName>
 
                     </Table>
                )

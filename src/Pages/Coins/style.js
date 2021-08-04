@@ -17,10 +17,35 @@ export const SearchBar = styled.div`
 
 export const Table = styled.div `
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
-        border: 1px solid red;
+        border-bottom: 1px solid red;
         width: 80%;
+
+        .red{
+                color:red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right:80px ;
+                width: 100px;
+        }
+        .green{
+                color: green;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right:80px ;
+                width: 100px;
+        }
         
 
+`
+export const CoinName = styled.div `
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right:80px ;
+        width: 100px;
+        
 `
