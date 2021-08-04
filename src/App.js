@@ -1,10 +1,9 @@
 import {useEffect} from "react"
 import axios from "axios"
-
 import { useCoins } from "./Context/Coins.js";
-
 import Coins from "./Pages/Coins/index.js";
 import Header from "./Componets/Header/index.js"; 
+import  GlobalStyle from "./Style/globalStyle";
 
 function App() {
   
@@ -21,9 +20,9 @@ function App() {
   return (
 
     <div className="App">
-      <Header> </Header>
-
-      <Coins />                    
+      <Header />
+      <Coins /> 
+      <GlobalStyle />                   
     </div>
     
   );
