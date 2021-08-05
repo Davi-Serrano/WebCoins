@@ -42,7 +42,7 @@ export const Table = styled.div `
                 width: 10%;
         }
         .green{
-                color: green;
+                color: #39ff14;
                 display: flex;
                 justify-content: center;
                 align-items: center;

@@ -10,6 +10,6 @@ export const darkTheme = {
     colors: {
         background: "black",
         color: "white",
-        body: "gray"
+        body: "#696969"
     },
 }
