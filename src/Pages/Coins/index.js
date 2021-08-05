@@ -28,7 +28,9 @@ export default function Coins() {
                     
                     <CoinName>
                         <img src={coin.image} height="60px" width="60px"/>
+                        <div className="hide">
                         {coin.name}
+                        </div>
                     </CoinName>
 
                     <CoinName>

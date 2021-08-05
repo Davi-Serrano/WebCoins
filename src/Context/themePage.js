@@ -5,7 +5,7 @@ export const ThemePageContext = createContext();
 export default function ThemePageProvider({ children }){
 
 
-    const [ Theme, setTheme ] = useState("ligt");
+    const [ Theme, setTheme ] = useState("ligth");
 
     return(
 
