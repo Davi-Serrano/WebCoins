@@ -49,7 +49,11 @@ export const Table = styled.div `
                 margin-right:80px ;
                 width: 10%;
         }
-
+        @media (max-width: 850px){
+                .red, .green{
+                 margin-right:0;
+                }
+        }
 
         
 
@@ -66,6 +70,7 @@ export const CoinName = styled.div `
         width: 10%;
         
         @media (max-width: 850px){
+                margin-right: 50px;
                .hide{
                 display: none;
                }
