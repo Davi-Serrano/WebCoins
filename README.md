@@ -1,7 +1,7 @@
 <h1> WebCoins</h1>
 
 <h4>Descrição</h4>
-Site utiliza uma API para mostrar os valores da maioria das criptomoedas do mercado, possui uma barra de busca que filtra cada vez que uma letra é digitada.
+<p>Site utiliza uma API para mostrar os valores da maioria das criptomoedas do mercado, possui uma barra de busca que filtra cada vez que uma letra é digitada.</p>
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/82523921/128639215-a03ee47b-53e0-4211-8ab5-511fe194bec5.gif)
 <h3>
