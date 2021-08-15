@@ -81,3 +81,21 @@ export const CoinName = styled.div `
                }
         }
 `
+
+export const FlashMessage = styled.div`
+                display: ${(props) => props.display};
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        top: 0;
+        width: 80%;
+        height: 50px;
+
+        background-color: green;
+        color: white;
+        
+        font-size: 25px;
+        font-weight: bold;
+        
+`

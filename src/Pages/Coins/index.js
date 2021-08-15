@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useCoins } from "../../Context/Coins";
-import { NavCoins, SearchBar ,Table, CoinName } from "./style"
+import { NavCoins, SearchBar ,Table, CoinName, FlashMessage } from "./style"
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
 export default function Coins() {
 
     const { coins } = useCoins() //Api
+    const [flash, SetFlash] = useState("none")
 
     const  [bank, setBank]  = useState(()=>{
 
@@ -28,15 +29,23 @@ export default function Coins() {
         coin.name.toLowerCase().includes(search)
         ) //Filtra as moedas
 
+    function flashMessage(){
+        SetFlash("flex")
+        setTimeout(() => {
+            SetFlash("none")
+        }, 1000);
+    } 
+
    useEffect(() => {
        localStorage.setItem("@Coins", JSON.stringify(bank));
-    
+ 
    }, [bank])//Salva o bank
-
-   console.log(bank)
 
     return (
         <NavCoins>
+            <FlashMessage display={flash}>
+                Adicionado com sucesso
+            </FlashMessage>
            <SearchBar>
                <input type="text" placeholder="Search" onChange={handleChange}/>
            </SearchBar>
@@ -52,7 +61,11 @@ export default function Coins() {
                         </div>
                     </CoinName>
 
-                    <CoinName onClick={()=> setBank([...bank, coin])}>
+                    <CoinName onClick={()=> {
+                        setBank([...bank, coin])
+                        flashMessage()
+                                }
+                        }>
                         <AiOutlinePlusCircle size={25}/>
                     </CoinName>
 

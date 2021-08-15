@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Mybank, Section, List, Coins, Wallet} from './styled'
+import { Mybank, Section, List, Coins, Wallet, FlashMessage} from './styled'
 import { AiOutlineMinusCircle } from "react-icons/ai";
 
 
@@ -8,6 +8,7 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 export default function Bank() {
 
     const [bank, setBank ] = useState([])
+    const [flash, SetFlash] = useState("none")
 
      const getBank = () =>{
       const Itens = localStorage.getItem("@Coins")
@@ -30,21 +31,34 @@ export default function Bank() {
 
     }, [])
 
+    function flashMessage(){
+        SetFlash("flex")
+        setTimeout(() => {
+            SetFlash("none")
+        }, 1000);
+    } 
 
     return (
         <Mybank>
+            <FlashMessage display={flash}>
+                Excluido com sucesso
+            </FlashMessage>
             <Section>
                 {bank.map((coin, remove)=>{
                     return (
 
                 <List key={coin.id}>
                     <img src={coin.image} alt="CoinIcon" width='50px'/>
+                  
                     <Coins onClick={ ()=>{
                         bank.splice(remove, 1)
                         localStorage.setItem("@Coins", JSON.stringify(bank));
                         getBank()
+                        flashMessage()
                     }}
-                    > <AiOutlineMinusCircle size={25}/></Coins>
+                    > <AiOutlineMinusCircle size={25}/>
+                    </Coins>
+                    
                     <Coins>{coin.name}</Coins>
                     <Coins>R${coin.current_price.toFixed(2)}</Coins>
                 </List>
