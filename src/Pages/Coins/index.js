@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCoins } from "../../Context/Coins";
-import { NavCoins, SearchBar ,Table, CoinName, CoinSymbol } from "./style"
+import { NavCoins, SearchBar ,Table, CoinName } from "./style"
 
 export default function Coins() {
 
     const { coins } = useCoins()
-    const [ search, setSeacrh ] = useState(coins)
+    const  [bank, setBank]  = useState(()=>{
 
-   
+        const storageBank = localStorage.getItem("@Coins")
+
+        if(storageBank){
+            return JSON.parse(storageBank)
+        }else{
+            return [];
+        }
+    })
+
+    const [ search, setSeacrh ] = useState(coins)
     
     const handleChange = e => {
         setSeacrh(e.target.value.toLowerCase())
@@ -16,6 +25,13 @@ export default function Coins() {
     const filtredCoins = coins.filter( coin =>
         coin.name.toLowerCase().includes(search)
         )
+
+   useEffect(() => {
+       localStorage.setItem("@Coins", JSON.stringify(bank));
+    
+   }, [bank])
+
+    
     return (
         <NavCoins>
            <SearchBar>
@@ -27,10 +43,14 @@ export default function Coins() {
                    <Table key={coin.id}>
                     
                     <CoinName>
-                        <img src={coin.image} height="60px" width="60px"/>
+                        <img src={coin.image} alt="IconCoin" height="60px" width="60px"/>
                         <div className="hide">
                         {coin.name}
                         </div>
+                    </CoinName>
+
+                    <CoinName onClick={()=> setBank([...bank, coin.name])}>
+                        Adicionar
                     </CoinName>
 
                     <CoinName>

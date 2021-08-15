@@ -1,12 +1,13 @@
 import {useEffect} from "react"
 import axios from "axios"
 import { useCoins } from "./Context/Coins.js";
-import Coins from "./Pages/Coins/index.js";
 import Header from "./Componets/Header/index.js";
 import { ThemeProvider } from "styled-components";
 import  GlobalStyle from "./Style/globalStyle";
 import {  lightTheme, darkTheme} from "./Style/theme"
 import { useThemePage } from "./Context/themePage";
+import { BrowserRouter } from "react-router-dom"
+import Routes from "./Routes/index.js";
 
 function App() {
   
@@ -22,11 +23,14 @@ function App() {
 )}, []);
   
   return (
+    
     <ThemeProvider theme={Theme === "ligth" ? lightTheme : darkTheme}>   
+    <BrowserRouter>
         <Header />
-        <Coins /> 
+        < Routes />
         <GlobalStyle />                   
 
+    </BrowserRouter>
     </ThemeProvider>
     
   );
