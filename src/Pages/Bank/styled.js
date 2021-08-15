@@ -66,10 +66,12 @@ export const FlashMessage = styled.div`
         position: absolute;
         top: 0;
         width: 80%;
-        height: 50px;
+        height: 30px;
 
         background-color: red;
         color: white;
+        
+        border-radius: 5px;
         
         font-size: 25px;
         font-weight: bold;

@@ -19,7 +19,6 @@ export default function Bank() {
           setBank(item)
         }
     }
-
     
     function getTotal(total, item) {
         return total + item.current_price
@@ -31,7 +30,7 @@ export default function Bank() {
 
     }, [])
 
-    function flashMessage(){
+    const flashMessage = () =>{
         SetFlash("flex")
         setTimeout(() => {
             SetFlash("none")

@@ -23,24 +23,23 @@ export default function Coins() {
     
     const handleChange = e => {
         setSeacrh(e.target.value.toLowerCase())
-    }
+    }//Coloca valor do input no search e Lower Case
 
     const filtredCoins = coins.filter( coin =>
         coin.name.toLowerCase().includes(search)
         ) //Filtra as moedas
-
-    function flashMessage(){
-        SetFlash("flex")
-        setTimeout(() => {
-            SetFlash("none")
-        }, 1000);
-    } 
-
-   useEffect(() => {
-       localStorage.setItem("@Coins", JSON.stringify(bank));
- 
-   }, [bank])//Salva o bank
-
+        
+        useEffect(() => {
+            localStorage.setItem("@Coins", JSON.stringify(bank));
+            
+        }, [bank])//Salva o bank
+        
+        const flashMessage = () =>{
+            SetFlash("flex")
+            setTimeout(() => {
+                SetFlash("none")
+            }, 1000);
+        } 
     return (
         <NavCoins>
             <FlashMessage display={flash}>
