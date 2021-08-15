@@ -5,5 +5,8 @@ export const Button = styled.div`
     position: fixed;
     left: 3%;
     top: 90%;
+        &:hover{
+            cursor:pointer;
+        }
 
 `
