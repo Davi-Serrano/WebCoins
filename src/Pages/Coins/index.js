@@ -32,6 +32,8 @@ export default function Coins() {
     
    }, [bank])//Salva o bank
 
+   console.log(bank)
+
     return (
         <NavCoins>
            <SearchBar>
@@ -49,7 +51,7 @@ export default function Coins() {
                         </div>
                     </CoinName>
 
-                    <CoinName onClick={()=> setBank([...bank, coin.name])}>
+                    <CoinName onClick={()=> setBank([...bank, coin])}>
                         Adicionar
                     </CoinName>
 

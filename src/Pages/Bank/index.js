@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Mybank, Section, List, Coins, Wallet} from './styled'
 
 export default function Bank() {
 
@@ -13,25 +14,45 @@ export default function Bank() {
           setBank(item)
         }
     }
-    
-    useEffect(()=>{
 
+    
+    function getTotal(total, item) {
+        return total + item.current_price
+    }
+    var total = bank.reduce(getTotal, 0);
+    
+    console.log(total.toFixed(2))
+    useEffect(()=>{
         getBank()
+
     }, [])
 
 
     return (
-        <div>
-            <h1>Eu sou o Bank</h1>
-            {bank.map((coin)=>{
-                return (
+        <Mybank>
+            <Section>
+                {bank.map((coin)=>{
+                    return (
 
-            <ul>
-                <li>{coin}</li>
-            </ul>
-                )
-            } )}
-            
-        </div>
+                <List key={coin.id}>
+                    <img src={coin.image} alt="CoinIcon" width='50px'/>
+                    <Coins>{coin.name}</Coins>
+                    <Coins>R${coin.current_price.toFixed(2)}</Coins>
+                </List>
+                    )
+                } )}
+                
+            </Section>
+
+            <Wallet>
+                <div className="title">
+                    <h3>Usuário</h3>
+                    <h3>Saldo: R${total.toFixed(2)}</h3>
+                </div>
+                
+            </Wallet>
+
+        </Mybank>
+
     )
 }
