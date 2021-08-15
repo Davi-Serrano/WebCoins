@@ -20,8 +20,7 @@ export default function Bank() {
         return total + item.current_price
     }
     var total = bank.reduce(getTotal, 0);
-    
-    console.log(total.toFixed(2))
+
     useEffect(()=>{
         getBank()
 
@@ -31,11 +30,17 @@ export default function Bank() {
     return (
         <Mybank>
             <Section>
-                {bank.map((coin)=>{
+                {bank.map((coin, remove)=>{
                     return (
 
                 <List key={coin.id}>
                     <img src={coin.image} alt="CoinIcon" width='50px'/>
+                    <Coins onClick={ ()=>{
+                        bank.splice(remove, 1)
+                        localStorage.setItem("@Coins", JSON.stringify(bank));
+                        getBank()
+                    }}
+                    > Rem</Coins>
                     <Coins>{coin.name}</Coins>
                     <Coins>R${coin.current_price.toFixed(2)}</Coins>
                 </List>
