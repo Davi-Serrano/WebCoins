@@ -4,7 +4,7 @@ export default function Bank() {
 
     const [bank, setBank ] = useState([])
 
-     const data = () =>{
+     const getBank = () =>{
       const Itens = localStorage.getItem("@Coins")
 
       if(Itens){
@@ -16,10 +16,10 @@ export default function Bank() {
     
     useEffect(()=>{
 
-        data()
+        getBank()
     }, [])
 
-    console.log(bank)
+
     return (
         <div>
             <h1>Eu sou o Bank</h1>

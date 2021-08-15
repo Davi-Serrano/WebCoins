@@ -4,7 +4,8 @@ import { NavCoins, SearchBar ,Table, CoinName } from "./style"
 
 export default function Coins() {
 
-    const { coins } = useCoins()
+    const { coins } = useCoins() //Api
+
     const  [bank, setBank]  = useState(()=>{
 
         const storageBank = localStorage.getItem("@Coins")
@@ -14,9 +15,9 @@ export default function Coins() {
         }else{
             return [];
         }
-    })
+    }) //Pega dados do Bank se existir
 
-    const [ search, setSeacrh ] = useState(coins)
+    const [ search, setSeacrh ] = useState(coins) //Barra de Pesquisa
     
     const handleChange = e => {
         setSeacrh(e.target.value.toLowerCase())
@@ -24,14 +25,13 @@ export default function Coins() {
 
     const filtredCoins = coins.filter( coin =>
         coin.name.toLowerCase().includes(search)
-        )
+        ) //Filtra as moedas
 
    useEffect(() => {
        localStorage.setItem("@Coins", JSON.stringify(bank));
     
-   }, [bank])
+   }, [bank])//Salva o bank
 
-    
     return (
         <NavCoins>
            <SearchBar>
