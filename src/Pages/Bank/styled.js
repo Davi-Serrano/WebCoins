@@ -18,7 +18,7 @@ export const List = styled.div`
         display:flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid red;
+        border-bottom: 2px solid ${props => props.theme.colors.background};;
         height: 80px;
 `
 
@@ -27,10 +27,14 @@ export const Coins = styled.div`
         justify-content: center;
         align-items: center;
 
-        border: 1px solid red;
-
         width: 150px;
         height: 80px;
+
+
+        &:hover{
+                        cursor: pointer;
+                        transform: translateY(-3px);
+                }
 `
 
 export const Wallet = styled.div`

@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Mybank, Section, List, Coins, Wallet} from './styled'
+import { AiOutlineMinusCircle } from "react-icons/ai";
+
+
+
 
 export default function Bank() {
 
@@ -40,7 +44,7 @@ export default function Bank() {
                         localStorage.setItem("@Coins", JSON.stringify(bank));
                         getBank()
                     }}
-                    > Rem</Coins>
+                    > <AiOutlineMinusCircle size={25}/></Coins>
                     <Coins>{coin.name}</Coins>
                     <Coins>R${coin.current_price.toFixed(2)}</Coins>
                 </List>

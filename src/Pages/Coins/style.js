@@ -27,7 +27,7 @@ export const SearchBar = styled.div`
 
 export const Table = styled.div `
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
         padding: 0.5em 0;
         border-bottom: 2px solid ${props => props.theme.colors.background};;
@@ -67,7 +67,12 @@ export const CoinName = styled.div `
         justify-content: center;
         align-items: center;
         margin-right:80px ;
-        width: 10%;
+        width: 100px;
+
+                &:hover{
+                        cursor: pointer;
+                        transform: translateY(-3px);
+                }
         
         @media (max-width: 850px){
                 margin-right: 50px;

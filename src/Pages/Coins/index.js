@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCoins } from "../../Context/Coins";
 import { NavCoins, SearchBar ,Table, CoinName } from "./style"
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 export default function Coins() {
 
@@ -52,7 +53,7 @@ export default function Coins() {
                     </CoinName>
 
                     <CoinName onClick={()=> setBank([...bank, coin])}>
-                        Adicionar
+                        <AiOutlinePlusCircle size={25}/>
                     </CoinName>
 
                     <CoinName>
