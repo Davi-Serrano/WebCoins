@@ -76,3 +76,11 @@ export const Btn = styled.div`
         transform: translateY(-4px);
     }
 `
+export const Error = styled.div`
+
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+        color: #ff2400;
+        font-weight: bold;
+`

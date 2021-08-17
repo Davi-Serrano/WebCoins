@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { SingIn, Box, Input ,Btn } from "./styled"
+import { SingIn, Box, Input ,Btn, Error } from "./styled"
 
 export default function Login() {
     
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
 
     function handleSingin (){
 
@@ -12,22 +13,20 @@ export default function Login() {
         const savedPassword = localStorage.getItem("@Webcoin: Password")
 
         if(savedEmail){
-                        if(email === savedEmail && password === savedPassword){
-                            localStorage.setItem("@Webcoins: log", "yes")
+             if(email === savedEmail && password === savedPassword){
+            localStorage.setItem("@Webcoins: log", "yes")
                             
-                        }else{
-                            console.log("Usuário ou senha incorreto")
+            }else{
+                setError("Usuário ou senha incorreto")
                         }
-        }else{
-        
-            console.log("Não encontrado")
-        }
+        }else{       
+            setError("Usuário não encontrado por favor de cadastre")
+        }//Verificação
             
-    }
+    }//Login
         return (
-        
+
         <SingIn>
-    
             <Box>
                     <h2>Login </h2>
 
@@ -40,11 +39,11 @@ export default function Login() {
                         <Input>
                         <input type="password" onChange={(e) =>setPassword(e.target.value)}/>
                         </Input>
+                        <Error>{error}</Error>
                         <Btn onClick={handleSingin}>Login</Btn>
                         <Btn ><a href="/register"> Register</a></Btn>   
 
             </Box>
-      
        </SingIn>
     )
   
