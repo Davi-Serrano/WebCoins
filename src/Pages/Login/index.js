@@ -17,7 +17,7 @@ export default function Login() {
             localStorage.setItem("@Webcoins: log", "yes")
                             
             }else{
-                setError("Usuário ou senha incorreto")
+                setError("Email ou senha incorreto")
                         }
         }else{       
             setError("Usuário não encontrado por favor de cadastre")

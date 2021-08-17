@@ -3,6 +3,7 @@ import { SingIn, Box, Input ,Btn, Error } from "./styled"
 
 export default function Register() {
 
+    const [user, setUser] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [password2, setPassword2] = useState("")
@@ -20,6 +21,7 @@ export default function Register() {
             setError("Senha muito curta")
         }
         localStorage.setItem("@Webcoin: Email", email)
+        localStorage.setItem("@Webcoin: User", user)
         localStorage.setItem("@Webcoin: Password", password)
     }
 
@@ -31,18 +33,21 @@ export default function Register() {
             <Box>
                     <h2>Register </h2>
 
-                    
+                        <label>Usuário</label>
+                        <Input>
+                        <input type="text" onChange={ (e) => setUser(e.target.value)}/>
+                        </Input>
                         <label>Email</label>
                         <Input>
-                        <input type="email" onChange={ (e) => setEmail(e.target.value)}/>
+                        <input type="email" min="6" max="20" onChange={ (e) => setEmail(e.target.value)}/>
                         </Input>
                         <label>Password</label>
                         <Input>
-                        <input type="password" onChange={ (e) => setPassword(e.target.value)}/>
+                        <input type="password" min="6" onChange={ (e) => setPassword(e.target.value)}/>
                         </Input>
                         <label>Password</label>
                         <Input>
-                        <input type="password" onChange={ (e) => setPassword2(e.target.value)}/>
+                        <input type="password" min="5" nChange={ (e) => setPassword2(e.target.value)}/>
                         </Input>
                         <Error>  {error} </Error>
                         <Btn onClick={handleRegister}>Register</Btn>
