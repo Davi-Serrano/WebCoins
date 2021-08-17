@@ -20,9 +20,9 @@ export const Box = styled.div`
     background-color:${props => props.theme.colors.backgroundTwo};
     color: white;
     
-    padding: 2em;
+    padding:2em;
    
-    height: 50%;
+    height: 60%;
     width: 25%;
     h2{
         border-bottom: 1px solid white;
@@ -31,6 +31,7 @@ export const Box = styled.div`
         width: 30%;
     }
     label{
+        margin-left: 10%;
         font-size: 20px;
         font-weight: bold;
     }
@@ -44,6 +45,7 @@ export const Input = styled.div`
         height: 25px;
         
         box-shadow: 0px 2px white;
+        margin-left: 10%;
         margin-bottom: 1em;
         
         font-weight: 700;
@@ -60,7 +62,7 @@ export const Btn = styled.div`
     color: white;
     
     margin-top: 1em;
-    margin-left: 40%;
+    margin-left: 35%;
     padding: 0.3em;
     
     font-size: 25px;

@@ -1,6 +1,7 @@
 import {useEffect} from "react"
 import axios from "axios"
 import { useCoins } from "./Context/Coins.js";
+import UserProvider from "./Context/User.js";
 import Header from "./Componets/Header/index.js";
 import { ThemeProvider } from "styled-components";
 import  GlobalStyle from "./Style/globalStyle";
@@ -26,10 +27,13 @@ function App() {
     
     <ThemeProvider theme={Theme === "ligth" ? lightTheme : darkTheme}>   
     <BrowserRouter>
+    <UserProvider>
+
         <Header />
         < Routes />
         <GlobalStyle />                   
 
+    </UserProvider>
     </BrowserRouter>
     </ThemeProvider>
     

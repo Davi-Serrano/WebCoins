@@ -17,5 +17,10 @@ export default createGlobalStyle`
         color: ${props => props.theme.colors.color};
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
+
+    }
+    a{
+        color: white;
+        text-decoration: none;
     }
 `;

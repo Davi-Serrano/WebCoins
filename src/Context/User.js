@@ -23,7 +23,7 @@ export default function UserProvider({ children }){
     )
 }
 
-export function useCoins(){
+export function useUser(){
     const context = useContext(UserContext)
     const { user, setUser }  = context ;
 
