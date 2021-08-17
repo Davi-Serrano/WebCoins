@@ -1,11 +1,8 @@
 import { useState } from "react"
-import { Redirect } from "react-router"
-import { useUser } from "../../Context/User.js"
 import { SingIn, Box, Input ,Btn } from "./styled"
 
 export default function Login() {
     
-    const { user, setUser } = useUser()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -16,7 +13,7 @@ export default function Login() {
 
         if(savedEmail){
                         if(email === savedEmail && password === savedPassword){
-                            setUser(true)
+                            localStorage.setItem("@Webcoins: log", "yes")
                             
                         }else{
                             console.log("Usuário ou senha incorreto")
@@ -27,8 +24,6 @@ export default function Login() {
         }
             
     }
-    console.log(user)
-
         return (
         
         <SingIn>
