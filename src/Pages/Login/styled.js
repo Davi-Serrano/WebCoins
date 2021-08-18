@@ -4,10 +4,16 @@ export const SingIn = styled.div`
 
     background-image: url(https://i0.wp.com/www.zenvia.com/wp-content/uploads/2020/07/Cliente-Satisfeito.jpg?fit=1490%2C703&ssl=1);
     height: 91.2vh;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 850px){
+        background-image: url(https://fxtrending.com/wp-content/uploads/2020/01/cryptocurrency-metal-coins1.jpg);
+        width: 100vw;
+    }
+    
 
 `
 export const Box = styled.div`
@@ -22,8 +28,9 @@ export const Box = styled.div`
     
     padding:2em;
    
-    height: 60%;
-    width: 25%;
+    height: 65%;
+    width: 30%;
+
     h2{
         border-bottom: 1px solid white;
         margin-bottom: 1em;
@@ -35,6 +42,16 @@ export const Box = styled.div`
         font-size: 20px;
         font-weight: bold;
     }
+    @media (max-width: 1300px){
+        width: 70%;
+        align-items: center;
+    }
+    @media (max-width: 850px){
+        width: 100%;
+        align-items: flex-start;
+        margin-left:0 ;
+    }
+
 
 `
 export const Input = styled.div`
@@ -74,6 +91,12 @@ export const Btn = styled.div`
         cursor: pointer;
         background-color: ${props => props.theme.colors.backgroundTwo};
         transform: translateY(-4px);
+    }
+    @media (max-width: 1300px){
+        margin: 0;
+    }
+    @media (max-width: 850px){
+        margin-left: 40%;
     }
 `
 export const Error = styled.div`

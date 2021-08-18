@@ -20,10 +20,14 @@ export default function Register() {
         if(password.length < 5){
             setError("Senha muito curta")
         }
+        //Verificação de dados
+
         localStorage.setItem("@Webcoin: Email", email)
         localStorage.setItem("@Webcoin: User", user)
         localStorage.setItem("@Webcoin: Password", password)
-    }
+
+
+    }//Registra usuário
 
 
         return (
