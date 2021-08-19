@@ -39,7 +39,9 @@ export default function Coins() {
             setTimeout(() => {
                 SetFlash("none")
             }, 1000);
-        } 
+        } //Sucesso ao salvar na carteira
+
+        console.log(bank.length)
     return (
         <NavCoins>
             <FlashMessage display={flash}>
@@ -61,9 +63,13 @@ export default function Coins() {
                     </CoinName>
 
                     <CoinName onClick={()=> {
-                        setBank([...bank, coin])
-                        flashMessage()
-                                }
+                        //Adiciona Moedas na carteira
+                                if(bank.length < 10){
+                                    setBank([...bank, coin])
+                                    flashMessage()
+                                    //Limite de 10 moedas
+                                } 
+                            }
                         }>
                         <AiOutlinePlusCircle size={25}/>
                     </CoinName>
