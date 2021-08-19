@@ -10,21 +10,24 @@ export default function Register() {
     const [error, setError] = useState("")
 
     function handleRegister(){
-
-        if(password.length < 5){
-            setError("Senha muito curta")
-        }
-        if(password !== password2){
-            setError("As senhas são diferentes")
-        }
+        
         if(!user || !email || !password || !password2){
             setError("Por favor preencha todos os campos")
         }
-        //Verificação de dados
+        if(password.length < 5){
+                setError("Senha muito curta")
+        }
+        if(password === password2){
+                setError("As senhas são diferentes")
+        }
+            //Verificação de dados
 
-        localStorage.setItem("@Webcoin: User", user)
-        localStorage.setItem("@Webcoin: Email", email)
-        localStorage.setItem("@Webcoin: Password", password)
+       else{
+           setError("")
+            localStorage.setItem("@Webcoin: User", user)
+            localStorage.setItem("@Webcoin: Email", email)
+            localStorage.setItem("@Webcoin: Password", password)
+        }
 
 
     }//Registra usuário
