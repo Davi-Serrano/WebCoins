@@ -30,10 +30,9 @@ export const Coins = styled.div`
         width: 150px;
         height: 80px;
 
-
-        &:hover{
-                        cursor: pointer;
-                        transform: translateY(-3px);
+           &:hover{
+                cursor: pointer;
+                transform: translateY(-3px);
                 }
 `
 
@@ -55,7 +54,69 @@ export const Wallet = styled.div`
             justify-content: space-between;
             align-items: center;
         }
+        .info{
+            display:flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
 
+`
+export const Balance = styled.div`
+        font-size: 22px;   
+        opacity: ${(props) => props.opacity};;
+`
+
+export const Informations = styled.div`
+        display:flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;   
+        margin-top: 1em;
+        width: 100%;
+        
+`
+export const Options = styled.div`
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        .box{
+                display:flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 30px;
+                padding: 1em;
+                font-weight: bold;
+                border: 2px solid ${props => props.theme.colors.color};
+                border-radius: 5px;
+
+                &:hover{
+                cursor: pointer;
+                transform: translateY(-3px);
+                }
+                
+        }
+
+        .value{
+                background-color: #00FF00;
+                &:hover{
+                        opacity: 0.8;
+                }
+        }
+        .liquid{
+                background-color: #0000CD;
+                &:hover{
+                        opacity: 0.8;
+                }
+        }
+        .variations{
+                background-color: #FF4500;
+                &:hover{
+                        opacity: 0.8;
+                }
+        }
+
+        
 `
 
 export const FlashMessage = styled.div`
