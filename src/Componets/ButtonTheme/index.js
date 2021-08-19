@@ -7,10 +7,15 @@ export default function BtnTheme() {
     const { Theme, setTheme} = useThemePage()
 
     function handleTheme(){
-        Theme === "ligth" ? 
+
+        if(Theme === "ligth"){
             setTheme("dark")
-             :
-            setTheme("ligth") 
+            localStorage.setItem("@Webcoin: Theme", "dark")
+        }else{
+            setTheme("ligth")
+            localStorage.setItem("@Webcoin: Theme", "ligth")
+        }
+           
      }
 
     return (

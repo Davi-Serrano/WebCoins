@@ -11,19 +11,19 @@ export default function Register() {
 
     function handleRegister(){
 
-        if(!email || !password || !password2){
-            setError("Por favor preencha todos os campos")
+        if(password.length < 5){
+            setError("Senha muito curta")
         }
         if(password !== password2){
             setError("As senhas são diferentes")
         }
-        if(password.length < 5){
-            setError("Senha muito curta")
+        if(!user || !email || !password || !password2){
+            setError("Por favor preencha todos os campos")
         }
         //Verificação de dados
 
-        localStorage.setItem("@Webcoin: Email", email)
         localStorage.setItem("@Webcoin: User", user)
+        localStorage.setItem("@Webcoin: Email", email)
         localStorage.setItem("@Webcoin: Password", password)
 
 

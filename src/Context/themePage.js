@@ -5,7 +5,13 @@ export const ThemePageContext = createContext();
 export default function ThemePageProvider({ children }){
 
 
-    const [ Theme, setTheme ] = useState("ligth");
+    const [ Theme, setTheme ] = useState(()=>{
+        const savedTheme = localStorage.getItem("@Webcoin: Theme")
+        if(savedTheme){
+            return savedTheme
+        }
+        return "ligth"
+    },);
 
     return(
 
