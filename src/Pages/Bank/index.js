@@ -55,7 +55,6 @@ export default function Bank() {
         getBank()    
     }, [])
 
-    console.log(graphDatas)
 
     function getTotal(total, item) {
         return total + item.current_price
@@ -127,8 +126,13 @@ export default function Bank() {
                                                 }}>
                         Liquidez
                     </div>
-                    <div className="box variations" onClick={()=> setGraphColor("#FF4500")}>
-                        Variações
+                    <div className="box variations"  onClick={()=> { 
+                                                    setGraphColor("#FF4500")
+                                                    setGraphTitle("Variação 24h")
+                                                    const values = bank.map(coin=> coin.price_change_24h)
+                                                    setGraphDatas(values)
+                                                }}>
+                        Variação 24h
                     </div>
                 </Options>
                 </Informations>
