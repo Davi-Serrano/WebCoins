@@ -41,11 +41,13 @@ export const Wallet = styled.div`
         flex-direction: column;
         justify-content: start;
         align-items: center;
-        border: 1px solid red;
-
+        
         width: 40%;
         
         padding: 1em;
+        
+        background-color: ${props => props.theme.colors.background};
+        border-radius: 2em;
 
         .title{
             width: 100%;
