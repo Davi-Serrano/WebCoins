@@ -12,13 +12,14 @@ export default function Bank() {
     const [graphColor, setGraphColor] = useState("#00FF00")
     const [graphDatas, setGraphDatas] = useState([])
     const [graphNames, setGraphNames] = useState([]) 
+    const [graphTitle, setGraphTitle] = useState("Valor")
     const User = localStorage.getItem("@Webcoin: User")
 
     const data = {
         labels: graphNames,
         datasets: [
           {
-            label: 'Valor',
+            label: graphTitle,
             data: graphDatas,
             backgroundColor: graphColor,
           },
@@ -54,6 +55,7 @@ export default function Bank() {
         getBank()    
     }, [])
 
+    console.log(graphDatas)
 
     function getTotal(total, item) {
         return total + item.current_price
@@ -105,15 +107,24 @@ export default function Bank() {
                     </div>     
                 </div>
                 
-                <Informations><h3>  Moedas </h3>
+                <Informations><h3>  Moedas: {graphTitle}</h3>
                
                 <Bar data={data} options={options} />
                 
                 <Options>
-                    <div className="box value" onClick={()=> setGraphColor("#00FF00")}>
+                    <div className="box value" onClick={()=> {setGraphColor("#00FF00")
+                                                            setGraphTitle("Valor")
+                                                            const values = bank.map(coin=> coin.current_price)
+                                                            setGraphDatas(values)
+                                                        }}>
                         Valor
                     </div>
-                    <div className="box liquid" onClick={()=> setGraphColor("#0000CD")}>
+                    <div className="box liquid" onClick={()=> { 
+                                                    setGraphColor("#0000CD")
+                                                    setGraphTitle("Liquidez")
+                                                    const values = bank.map(coin=> coin.total_volume)
+                                                    setGraphDatas(values)
+                                                }}>
                         Liquidez
                     </div>
                     <div className="box variations" onClick={()=> setGraphColor("#FF4500")}>
