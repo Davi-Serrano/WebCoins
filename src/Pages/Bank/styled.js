@@ -44,8 +44,7 @@ export const Wallet = styled.div`
         border: 1px solid red;
 
         width: 40%;
-        height: 200px;
-
+        
         padding: 1em;
 
         .title{
@@ -89,6 +88,7 @@ export const Options = styled.div`
                 font-weight: bold;
                 border: 2px solid ${props => props.theme.colors.color};
                 border-radius: 5px;
+                color:black;
 
                 &:hover{
                 cursor: pointer;

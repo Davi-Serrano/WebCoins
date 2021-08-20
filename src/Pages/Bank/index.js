@@ -2,12 +2,38 @@ import React, { useEffect, useState } from 'react'
 import { Mybank, Section, List, Coins, Wallet, Balance, Informations, Options ,FlashMessage} from './styled'
 import { AiOutlineMinusCircle } from "react-icons/ai";
 
+import { Bar } from 'react-chartjs-2';
+
 export default function Bank() {
 
     const [bank, setBank ] = useState([])
-    const [flash, SetFlash] = useState("none")
+    const [flash, setFlash] = useState("none")
+    const [graphColor, setGraphColor] = useState("#00FF00")
     const [hideBalance, setHideBalance] = useState("10")
     const User = localStorage.getItem("@Webcoin: User")
+
+    const data = {
+        labels: ['1', '2', '3', '4', '5', '6'],
+        datasets: [
+          {
+            label: 'Valor',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: graphColor,
+          },
+        ],
+      };
+      
+      const options = {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      };
 
      const getBank = () =>{
       const Itens = localStorage.getItem("@Coins")
@@ -29,9 +55,9 @@ export default function Bank() {
     var total = bank.reduce(getTotal, 0);
 
     const flashMessage = () =>{
-        SetFlash("flex")
+        setFlash("flex")
         setTimeout(() => {
-            SetFlash("none")
+            setFlash("none")
         }, 1000);
     }
 
@@ -74,16 +100,17 @@ export default function Bank() {
                 </div>
                 
                 <Informations><h3>  Moedas </h3>
-                
+               
+                <Bar data={data} options={options} />
                 
                 <Options>
-                    <div className="box value">
+                    <div className="box value" onClick={()=> setGraphColor("#00FF00")}>
                         Valor
                     </div>
-                    <div className="box liquid">
+                    <div className="box liquid" onClick={()=> setGraphColor("#0000CD")}>
                         Liquidez
                     </div>
-                    <div className="box variations">
+                    <div className="box variations" onClick={()=> setGraphColor("#FF4500")}>
                         Variações
                     </div>
                 </Options>
