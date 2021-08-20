@@ -6,6 +6,11 @@ export const Mybank = styled.div`
         align-items: flex-start;
 
         margin-top: 3em;
+
+        @media (max-width: 1200px){
+                flex-direction: column-reverse;
+                align-items: center;
+        }
 `
 
 export const Section = styled.div`
@@ -13,13 +18,32 @@ export const Section = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        
+        @media (max-width: 1200px){
+                margin: 2em 0;
+
+                &::before{
+                          content: "Suas de Moedas";
+                          font-size: 25px;
+                          font-weight: bold;
+
+                  }
+        }
 `
 export const List = styled.div`
         display:flex;
         justify-content: center;
         align-items: center;
-        border-bottom: 2px solid ${props => props.theme.colors.background};;
+        border-bottom: 2px solid ${props => props.theme.colors.background};
         height: 80px;
+
+        
+        @media (max-width: 800px){
+                img{
+                  display: none;
+                }
+        }
 `
 
 export const Coins = styled.div`
@@ -34,6 +58,11 @@ export const Coins = styled.div`
                 cursor: pointer;
                 transform: translateY(-3px);
                 }
+                
+          @media (max-width: 1200px){
+                  width: 100px;
+          }        
+
 `
 
 export const Wallet = styled.div`
@@ -59,6 +88,10 @@ export const Wallet = styled.div`
             display:flex;
             justify-content: flex-end;
             align-items: center;
+        }
+        
+        @media (max-width: 1200px){
+                width: 100%;
         }
 
 `
