@@ -11,13 +11,21 @@ export default function Bank() {
     const [graphColor, setGraphColor] = useState("#00FF00")
     const [hideBalance, setHideBalance] = useState("10")
     const User = localStorage.getItem("@Webcoin: User")
+    const Itens = localStorage.getItem("@Coins")
+    const item = JSON.parse(Itens)
+     var datas = item.map(coin=> coin.name)
+     var values = item.map(coin=> coin.current_price)
+
+
+    console.log(item)
+
 
     const data = {
-        labels: ['1', '2', '3', '4', '5', '6'],
+        labels: datas,
         datasets: [
           {
             label: 'Valor',
-            data: [12, 19, 3, 5, 2, 3],
+            data: values,
             backgroundColor: graphColor,
           },
         ],
@@ -36,11 +44,9 @@ export default function Bank() {
       };
 
      const getBank = () =>{
-      const Itens = localStorage.getItem("@Coins")
+    
 
       if(Itens){
-
-          const item = JSON.parse(Itens)
           setBank(item)
         }
     }
