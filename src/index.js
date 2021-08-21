@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import CoinsProvider from "./Context/Coins";
 import ThemePageProvider from "./Context/themePage"
-import LogedProvider from "./Context/Loged"
+import LoggedProvider from "./Context/Logged"
 
 
 ReactDOM.render(
   <React.StrictMode>
         <CoinsProvider>
           <ThemePageProvider>
-            <LogedProvider>
+            <LoggedProvider>
              <App />
-            </LogedProvider>
+            </LoggedProvider>
           </ThemePageProvider>
         </CoinsProvider>
   </React.StrictMode>,

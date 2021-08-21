@@ -4,15 +4,15 @@ import Bank from "../Pages/Bank/index";
 import Login from "../Pages/Login/index"
 import Register from "../Pages/Register";
 import NotFound from "../Pages/NotFound";
-import { useLoged } from "../Context/Loged.js";
+import { useLogged } from "../Context/Logged.js";
 
 
 export default function Routes() {
     
-    const { loged } = useLoged()
+    const { logged } = useLogged()
 
 
-    if(loged === "yes"){
+    if(logged === "yes"){
         return(
 
             <Switch>
