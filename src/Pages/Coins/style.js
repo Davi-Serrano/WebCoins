@@ -92,7 +92,7 @@ export const FlashMessage = styled.div`
         width: 80%;
         height: 30px;
 
-        background-color: green;
+        background-color: ${(props) => props.color};
         color: white;
 
         border-radius: 5px;

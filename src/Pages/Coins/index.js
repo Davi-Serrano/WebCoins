@@ -7,6 +7,7 @@ export default function Coins() {
 
     const { coins } = useCoins() //Api
     const [flash, SetFlash] = useState("none")
+    const [flashMesage, SetFlashMesage] = useState("Adicionado com sucesso")
 
     const  [bank, setBank]  = useState(()=>{
 
@@ -41,11 +42,10 @@ export default function Coins() {
             }, 1000);
         } //Sucesso ao salvar na carteira
 
-        console.log(bank.length)
     return (
         <NavCoins>
-            <FlashMessage display={flash}>
-                Adicionado com sucesso
+            <FlashMessage color={flashMesage === "Adicionado com sucesso" ? "green" : "red"} display={flash}>
+                {flashMesage}
             </FlashMessage>
            <SearchBar>
                <input type="text" placeholder="Search" onChange={handleChange}/>
@@ -63,14 +63,18 @@ export default function Coins() {
                     </CoinName>
 
                     <CoinName onClick={()=> {
-                        //Adiciona Moedas na carteira
-                                if(bank.length < 10){
-                                    setBank([...bank, coin])
-                                    flashMessage()
-                                    //Limite de 10 moedas
-                                } 
+
+                            if( bank.length > 9){
+                                SetFlashMesage("Máximo de coins atingida ou já cadastrado")           
+                                flashMessage()
+                            }else{
+                                SetFlashMesage("Adicionado com sucesso")
+                                setBank([...bank, coin])
+                                flashMessage()         
                             }
-                        }>
+                        
+                            
+                        }}>
                         <AiOutlinePlusCircle size={25}/>
                     </CoinName>
 
