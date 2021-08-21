@@ -42,7 +42,7 @@ export default function Register() {
 
                         <label>Usuário</label>
                         <Input>
-                        <input type="text" onChange={ (e) => setUser(e.target.value)}/>
+                        <input type="text" min="6" max="20" onChange={ (e) => setUser(e.target.value)}/>
                         </Input>
                         <label>Email</label>
                         <Input>

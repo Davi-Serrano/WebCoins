@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Mybank, Section, List, Coins, Wallet, Balance, Informations, Options ,FlashMessage} from './styled'
+import { Mybank, Section, List, Coins, Wallet, Balance, BalanIcon ,Informations, Options ,FlashMessage} from './styled'
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import { BsFillEyeSlashFill } from "react-icons/bs";
+import { BsFillEyeFill } from "react-icons/bs";
+
 
 import { Bar } from 'react-chartjs-2';
 
@@ -102,8 +105,11 @@ export default function Bank() {
                     <h3>Olá, {User} !</h3>
                     <div className="info">
                         <Balance opacity={hideBalance}>Saldo: R${total.toFixed(2) } </Balance>
-                         <AiOutlineMinusCircle size={25} onClick={()=> hideBalance === "0" ? setHideBalance("10"): setHideBalance("0") }/>
-                    </div>     
+                         
+                         <BalanIcon display={hideBalance === "0" ? "none" : "block"}>   <BsFillEyeSlashFill size={25} onClick={()=> hideBalance === "0" ? setHideBalance("10"): setHideBalance("0") } /> </BalanIcon>
+                         
+                         <BalanIcon display={hideBalance === "0" ? "block" : "none"}>    <BsFillEyeFill size={25} onClick={()=> hideBalance === "0" ? setHideBalance("10"): setHideBalance("0") } />  </BalanIcon>
+                    </div>      
                 </div>
                 
                 <Informations><h3>  Moedas: {graphTitle}</h3>

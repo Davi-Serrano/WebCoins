@@ -97,7 +97,15 @@ export const Wallet = styled.div`
 `
 export const Balance = styled.div`
         font-size: 22px;   
-        opacity: ${(props) => props.opacity};;
+        padding-right: 1em;
+        opacity: ${(props) => props.opacity};
+`
+export const BalanIcon = styled.div`
+        display: ${(props) => props.display};
+
+        &:hover{
+                cursor: pointer;
+        }
 `
 
 export const Informations = styled.div`
