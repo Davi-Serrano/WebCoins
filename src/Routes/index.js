@@ -4,19 +4,15 @@ import Bank from "../Pages/Bank/index";
 import Login from "../Pages/Login/index"
 import Register from "../Pages/Register";
 import NotFound from "../Pages/NotFound";
-import { useEffect, useState } from "react";
+import { useLoged } from "../Context/Loged.js";
+
 
 export default function Routes() {
-    const [ login, setLogin] = useState("")
-
-    useEffect( ()=>{
-        const auth = localStorage.getItem("@Webcoins: log")
-        setLogin( auth)
-
-    }, [])
-
     
-    if(login === "yes"){
+    const { loged } = useLoged()
+
+
+    if(loged === "yes"){
         return(
 
             <Switch>
